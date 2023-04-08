@@ -1,0 +1,58 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: CI/CD
+
+on:
+  workflow_dispatch:
+    inputs:
+      git-ref:
+        description: Git Ref (Optional)    
+        required: false
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    - name: caching
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.npm
+          ${{ github.workspace }}/.next/cache
+        # Generate a new cache whenever packages or source files change.
+        key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+        # If source files changed but packages didn't, rebuild from a prior cache.
+        restore-keys: |
+          ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+    
+    - name: install dependencies 
+      run: npm ci
+      
+    - name: create .env.local & build
+      run: npm run build
+
+  deploy:
+    needs: build
+    runs-on: self-hosted
+    steps:
+        - name: move files to domain
+          run: rsync -aP --delete /home/sconrad/barber-action-runner/_work/barber-landing-page/barber-landing-page/ /var/www/barber.sametconrad.dev/html
+
+        - name: restart pm2 service
+          run: pm2 reload barber-next
+  
