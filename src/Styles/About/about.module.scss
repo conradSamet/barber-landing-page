@@ -3,18 +3,25 @@
 .section {
   background-color: var(--bg-gray);
   :global(.section_content) {
-    padding: 5rem;
+    padding-block: 5rem;
     padding-inline: 1.5rem;
 
-    display: flex;
-    flex-wrap: column;
-    gap: 2rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: normal;
+
+    & > div {
+      width: 100%;
+      @include lg {
+        width: clamp(300px, 100%, calc(50% - 2rem));
+      }
+    }
   }
 
   .img_wrapper {
     position: relative;
     aspect-ratio: 2/1.5;
-    width: 100%;
   }
 
   .content {
@@ -27,7 +34,9 @@
     }
     
     p {
-      width: 100%;
+      flex: 1;
+      max-width: 60ch;
+      line-height: 1.5;
       color: var(--text-color-reverse);
     }
 

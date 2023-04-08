@@ -4,84 +4,104 @@
   padding-inline: 1.5rem;
 
   & > :global(.section_content) {
-    margin-top: 5rem;
 
-    .image_border {
-      position: relative;
-      border: 2px solid var(--primary-color);
-      aspect-ratio: 1;
-
-      width: 100%;
-      @include lg {
-        width: clamp(350px, 100%, 22vw);
-      }
-
+    .service_introduction {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
 
-      &:after {
-        content: '';
-        position: absolute;
-        aspect-ratio: 1;
-        width: max(180px, 10vw);
-        clip-path: polygon(0 0, 0 100%, 100% 100%);
-        z-index: -1;
-        background-color: var(--primary-color);
-        bottom: 0;
-        left: 0;
+      width: clamp(350px, 100%, 17vw);
+      @include md {
+        flex-direction: row;
+        justify-content: center;
+        align-items: normal;
+        width: 100%;
+        gap: 2rem;
       }
 
-      .img_container {
+      .image_border {
         position: relative;
-        width: max(90%, 20vw);
+        border: 2px solid var(--primary-color);
         aspect-ratio: 1;
-  
-        img {
-          object-fit: cover;
-          object-position: right;
+        
+        width: clamp(350px, 100%, 17vw);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:after {
+          content: '';
+          position: absolute;
+          aspect-ratio: 1;
+          width: 65%;
+          clip-path: polygon(0 0, 0 100%, 100% 100%);
+          z-index: -1;
+          background-color: var(--primary-color);
+          bottom: 0;
+          left: 0;
+        }
+
+        .img_container {
+          position: relative;
+          width: max(90%, 15vw);
+          aspect-ratio: 1;
+
+          img {
+            object-fit: cover;
+            object-position: right;
+          }
+        }
+      }
+
+      .text_container {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+
+        @include md {
+          margin-top: 0;
+        }
+
+        & > p {
+          margin-top: 1rem;
+          @include md {
+            max-width: 50ch;
+          }
+        }
+
+        & > button {
+          margin-top: 2rem;
+          align-self: flex-start;
         }
       }
     }
 
-    .text_container {
-      margin-top: 2rem;
+    .service {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-top: 5rem;
 
       & > p {
-        margin-top: 1rem;
-      }
-
-      & > button {
         margin-top: 2rem;
       }
-    }
-  }
 
-  .service {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 5rem;
-    
-    & > p {
-      margin-top: 2rem;
+      .line {
+        width: 350px;
+        height: 3px;
+        background-color: var(--primary-color);
+        margin-top: 1rem;
+      }
     }
 
-    .line {
-      width: 350px;
-      height: 3px;
-      background-color: var(--primary-color);
-      margin-top: 1rem;
+    .service_cards {
+      margin-top: 5rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
     }
-  }
-
-  .service_cards {
-    margin-top: 5rem;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    padding-inline: 15%;
   }
 }

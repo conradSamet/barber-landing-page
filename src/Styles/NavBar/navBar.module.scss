@@ -7,7 +7,6 @@
   top: 0;
   height: 5rem;
   z-index: 100;
-
   background-color: var(--bg-blue-75);
 
   .container {
@@ -15,10 +14,13 @@
     display: flex;
     align-items: center;
     padding: 0 1.5rem;
+    max-width: var(--max-width);
+
+    @include lg {
+      margin-inline: auto;
+    }
 
     .heading_container {
-      flex: 1;
-
       & > h1 {
         font-family: var(--font-Roboto-light);
       }
@@ -26,16 +28,14 @@
 
     .navLinks_container {
       z-index: 110;
+      height: 100vh;
       width: 0rem;
       transition: width .5s ease-in-out;
-      
       &.animate_container {
         width: 15rem;
       }
-
       position: fixed;
       top: 0;
-      height: 100vh;
       left: 0;
 
       display: flex;
@@ -45,7 +45,11 @@
       background-color: var(--bg-black-50);
 
       @include lg {
-        //TODO 
+        background-color: transparent;
+        position: static;
+        flex: 1;
+        justify-content: flex-end;
+        height: auto;
       }
 
       & > ul {
@@ -62,6 +66,12 @@
         flex-direction: column;
         align-items: center;
         gap: 2rem;
+
+        @include lg {
+          opacity: 1;
+          flex-direction: row;
+          gap: 5rem;
+        }
 
         & > li {
           .button {
@@ -85,9 +95,14 @@
     .burgermenu {
       display: flex;
       flex-direction: column;
+      flex: 1;
+      align-items: flex-end;
       gap: 8px;
-
       cursor: pointer;
+
+      @include lg {
+        display: none;
+      }
 
       &:global(.active) {
         & > .line {

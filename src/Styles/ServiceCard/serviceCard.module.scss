@@ -1,7 +1,7 @@
 @use '@/Styles/mixins.scss' as *;
 
 .card {
-  width: 350px;
+  width: 300px;
   aspect-ratio: 1;
   border: 2px solid var(--primary-color);
   text-align: left;
@@ -9,9 +9,18 @@
   & > div {
     position: relative;
     aspect-ratio: 1;
-    
+    --object-pos: center;
+      &:global(.right) {
+        --object-pos: right;
+      }
+      &:global(.left) {
+        --object-pos: left;
+      }
+
     & > img {
       padding: 1rem;
+      object-fit: cover;
+      object-position: var(--object-pos);
     }
   }
 
