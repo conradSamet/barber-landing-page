@@ -51,7 +51,7 @@ jobs:
     runs-on: self-hosted
     steps:
         - name: move files to domain
-          run: rsync -aP --delete /home/sconrad/barber-action-runner/_work/barber-landing-page/barber-landing-page/ /var/www/barber.sametconrad.dev/html
+          run: rsync -azP --exclude '.env' --exclude '.env.local' --exclude '.env.test' --delete /home/sconrad/barber-action-runner/_work/barber-landing-page/barber-landing-page/ /var/www/barber.sametconrad.dev/html
 
         - name: restart pm2 service
           run: pm2 reload barber-next
