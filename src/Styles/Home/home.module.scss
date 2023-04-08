@@ -1,7 +1,7 @@
 @use '@/Styles/mixins.scss' as *;
 
 .home {
-  --height: 90svh;
+  --height: 100svh;
 
   position: relative;
   min-height: var(--height);
