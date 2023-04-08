@@ -1,0 +1,26 @@
+@use '@/Styles/mixins.scss' as *;
+
+.card {
+  width: 350px;
+  aspect-ratio: 1;
+  border: 2px solid var(--primary-color);
+  text-align: left;
+
+  & > div {
+    position: relative;
+    aspect-ratio: 1;
+    
+    & > img {
+      padding: 1rem;
+    }
+  }
+
+  & > h2 {
+    padding-inline: 1rem;
+  }
+
+  & > p {
+    min-height: 5rem;
+    padding: .5rem 1rem;
+  }
+}

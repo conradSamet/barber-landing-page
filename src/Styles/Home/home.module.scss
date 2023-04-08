@@ -1,0 +1,41 @@
+@use '@/Styles/mixins.scss' as *;
+
+.home {
+  --height: 90svh;
+
+  position: relative;
+  min-height: var(--height);
+  isolation: isolate;
+
+  .overlaying {
+    padding: 0 1.5rem;
+    height: var(--height);
+    background-color: var(--bg-blue-60);
+
+    .heading {
+      padding-top: 15svh;
+      text-align: center;
+      font-size: 2rem;
+      color: var(--text-color-reverse);
+    }
+
+    .pgraph {
+      text-align: center;
+      color: var(--text-color-reverse);
+      font-family: var(--font-Roboto-light);
+      max-width: 60ch;      
+      margin-top: 1.5rem;
+    }
+    
+    .buttons_container {
+      display: flex;
+      gap: 2rem;
+    }
+  }
+
+  .image {
+    object-fit: cover;
+    object-position: 40%;
+    z-index: -10;
+  }
+}

@@ -1,0 +1,18 @@
+@use '@/Styles/mixins.scss' as *;
+
+.main {
+  :global(.section_content) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+
+    &:not(:first-of-type) {
+      margin-top: 5rem;
+    }
+
+    & > * {
+      max-width: 1440px;
+    }
+  }
+}

@@ -1,11 +1,14 @@
+import { Navbar } from '@/Components/NavBar/Navbar'
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import styles from '@/Styles/Main/main.module.scss';
+import { Home } from '@/Components/Home/Home';
+import { Services } from '@/Components/Services/Services';
+import { About } from '@/Components/About/About'
+import { WorkingTime } from '@/Components/WorkingTIme/WorkingTime'
+import { Footer } from '@/Components/Footer/footer'
 
-const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Main() {
   return (
     <>
       <Head>
@@ -14,8 +17,15 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-
+      <main className={styles.main}>
+        <div>
+          <Navbar />
+          <Home />
+          <Services />
+          <About />
+          <WorkingTime />
+          <Footer />
+        </div>
       </main>
     </>
   )

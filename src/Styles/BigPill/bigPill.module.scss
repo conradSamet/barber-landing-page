@@ -1,0 +1,21 @@
+@use '@/Styles/mixins.scss' as *;
+
+.bigPill {
+  aspect-ratio: 2/1.3;
+  width: 150px;
+  border-radius: 25px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+
+  background-color: var(--bg-gray);
+  color: var(--text-color-reverse)
+}
+
+.today {
+  background-color: var(--primary-color);
+  color: var(--text-color-reverse);
+}

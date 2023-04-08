@@ -1,0 +1,117 @@
+@use '@/Styles/mixins.scss' as *;
+
+.navbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 5rem;
+  z-index: 100;
+
+  background-color: var(--bg-blue-75);
+
+  .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+
+    .heading_container {
+      flex: 1;
+
+      & > h1 {
+        font-family: var(--font-Roboto-light);
+      }
+    }
+
+    .navLinks_container {
+      z-index: 110;
+      width: 0rem;
+      transition: width .5s ease-in-out;
+      
+      &.animate_container {
+        width: 15rem;
+      }
+
+      position: fixed;
+      top: 0;
+      height: 100vh;
+      left: 0;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background-color: var(--bg-black-50);
+
+      @include lg {
+        //TODO 
+      }
+
+      & > ul {
+        opacity: 0;
+        transition: opacity .2s ease-in-out;
+        transition-delay: 0s;
+
+        &.animate_ul {
+          transition-delay: .5s;
+          opacity: 1;
+        }
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+
+        & > li {
+          .button {
+            background: none;
+            border: none;
+
+            cursor: pointer;
+            color: var(--text-color-reverse);
+            font-size: 1.1rem;
+
+            &:global(.active) {
+              color: var(--primary-color);
+              text-decoration-line: underline;
+              text-underline-offset: 5px;
+            }
+          }
+        }
+      }
+    }
+  
+    .burgermenu {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      cursor: pointer;
+
+      &:global(.active) {
+        & > .line {
+          &:nth-child(1) {
+            translate: 0 10px;
+            rotate: 45deg;
+          }
+          &:nth-child(2) {
+            opacity: 0;
+          }
+          &:nth-child(3) {
+            translate: 0 -10px;
+            rotate: -45deg;
+          }
+        }
+      }
+
+      .line {
+        display: inline-block;
+        width: 2rem;
+        height: 2px;
+        background-color: var(--primary-color);
+        transition: translate, rotate, .5s;
+      }
+    }
+  }
+}

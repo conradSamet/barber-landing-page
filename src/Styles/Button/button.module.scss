@@ -1,0 +1,28 @@
+@use '@/Styles/mixins.scss' as *;
+
+@mixin shared-button-style {
+  border: 2px solid var(--primary-color);
+  cursor: pointer;
+  padding: .75rem;
+  font-family: var(--font-Roboto-medium);
+  font-size: 1rem;
+  border-radius: 15px;
+}
+
+.primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+  
+  @include shared-button-style()
+}
+
+.secondary {
+  color: var(--text-color-reverse);
+  background-color: transparent;
+
+  @include shared-button-style()
+}
+
+.usePrimaryColor {
+  color: var(--primary-color);
+}

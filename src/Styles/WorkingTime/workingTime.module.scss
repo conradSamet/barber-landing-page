@@ -1,0 +1,11 @@
+@use '@/Styles/mixins.scss' as *;
+
+.section {
+  text-align: center;
+  .pill_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+}
