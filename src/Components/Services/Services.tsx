@@ -65,6 +65,7 @@ export function Services(props: IServicesProps) {
                 src={img}
                 alt='Image where you see someone getting an haircut'
                 fill
+                sizes='20vw'
               />
             </div>
           </div>

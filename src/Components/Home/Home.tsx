@@ -1,13 +1,12 @@
-import * as React from 'react';
-import styles from '@/Styles/Home/home.module.scss';
+import * as React from 'react'
+import styles from '@/Styles/Home/home.module.scss'
 import Image from 'next/image'
 import homeImg from '@/images/home_img.jpg'
-import { Button } from '../Button/Button';
+import { Button } from '../Button/Button'
 
-export interface IHomeProps {
-}
+export interface IHomeProps {}
 
-export function Home (props: IHomeProps) {
+export function Home(props: IHomeProps) {
   return (
     <section className={styles.home}>
       <div className={styles.overlaying}>
@@ -27,13 +26,14 @@ export function Home (props: IHomeProps) {
             <Button value='Explore More' customStyles={{ marginTop: '25px' }} />
           </div>
         </div>
-        <Image
-          className={styles.image}
-          src={homeImg}
-          alt='background image'
-          fill
-        />
       </div>
+      <Image
+        className={styles.image}
+        src={homeImg}
+        alt='background image'
+        fill
+        sizes='100vw'
+      />
     </section>
   )
 }

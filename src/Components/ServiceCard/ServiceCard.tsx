@@ -20,7 +20,7 @@ export function ServiceCard({
   return (
     <div className={styles.card}>
       <div className={imgPos ?? ''}>
-        <Image src={imgSrc} alt={alt} fill />
+        <Image src={imgSrc} alt={alt} fill sizes='15vw'/>
       </div>
       <h2> {descTitle} </h2>
       <p> {desc} </p>

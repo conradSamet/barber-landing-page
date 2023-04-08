@@ -18,7 +18,6 @@ const weekDays = [
 const date = new Date()
 
 export function WorkingTime(props: IWorkingTimeProps) {
-  console.log(date.getDay().toLocaleString())
   return (
     <section className={styles.section}>
       <div className='section_content'>
