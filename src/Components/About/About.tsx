@@ -9,13 +9,15 @@ export function About(props: IAboutProps) {
   return (
     <section className={styles.section}>
       <div className='section_content'>
-        <div className={styles.img_wrapper}>
-          <Image
-            src={img}
-            alt='Barber Shop with 2 People getting an Haircut'
-            fill
-            sizes='(max-width: 1024px) 100vw, 25vw'
-          />
+        <div>
+          <div className={styles.img_wrapper}>
+            <Image
+              src={img}
+              alt='Barber Shop with 2 People getting an Haircut'
+              fill
+              sizes='(max-width: 1024px) 100vw, 25vw'
+            />
+          </div>
         </div>
         <div className={styles.content}>
           <h2>Who We Are</h2>
