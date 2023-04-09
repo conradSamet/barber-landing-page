@@ -8,7 +8,7 @@ export interface IAboutProps {}
 export function About(props: IAboutProps) {
   return (
     <section className={styles.section}>
-      <div className='section_content'>
+      <div className='section_content row'>
         <div>
           <div className={styles.img_wrapper}>
             <Image

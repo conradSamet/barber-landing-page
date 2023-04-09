@@ -6,10 +6,12 @@
     padding-block: 5rem;
     padding-inline: 1.5rem;
 
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: normal;
+    &:global(.row) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: normal;
+    }
 
     & > div {
       width: 100%;
