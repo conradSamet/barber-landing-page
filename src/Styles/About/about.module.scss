@@ -14,7 +14,7 @@
     & > div {
       width: 100%;
       @include lg {
-        width: clamp(300px, 100%, calc(50% - 2rem));
+        width: clamp(300px, 100%, 25vw);
       }
     }
   }
