@@ -44,8 +44,8 @@
 
         .img_container {
           position: relative;
-          width: max(90%, 15vw);
           aspect-ratio: 1;
+          width: 90%;
 
           img {
             object-fit: cover;
