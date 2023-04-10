@@ -8,6 +8,7 @@ import { WorkingTime } from '@/Components/WorkingTIme/WorkingTime'
 import { Footer } from '@/Components/Footer/footer'
 
 export async function getStaticProps() {
+  console.log("revalidated")
   return {
     props: {
       day: new Date().getDay(),
