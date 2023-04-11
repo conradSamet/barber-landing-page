@@ -11,22 +11,23 @@ on:
         required: false
 
 jobs:
-  build:
+  linting:
     runs-on: self-hosted
+    steps: 
+      - name: npm run lint
+        run: npm run lint
 
-    strategy:
-      matrix:
-        node-version: [18.x]
 
+  build:
+    needs: linting
+    runs-on: self-hosted
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
     
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+    - uses: actions/setup-node@v3
       with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+        node-version: "18"
     
     - name: caching
       uses: actions/cache@v3
@@ -40,12 +41,11 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
     
-    - name: install dependencies 
-      run: npm ci
+    - name: npm ci & npm run build
+      run: |
+        npm ci
+        npm run build
       
-    - name: build
-      run: npm run build
-
   deploy:
     needs: build
     runs-on: self-hosted
