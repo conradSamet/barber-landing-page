@@ -1,4 +1,3 @@
-import * as React from 'react'
 import styles from '@/Styles/Home/home.module.scss'
 import Image from 'next/image'
 import homeImg from '@/images/home_img.jpg'

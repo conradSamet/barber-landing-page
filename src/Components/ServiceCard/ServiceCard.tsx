@@ -1,4 +1,3 @@
-import * as React from 'react'
 import styles from '@/Styles/ServiceCard/serviceCard.module.scss'
 import Image from 'next/image'
 

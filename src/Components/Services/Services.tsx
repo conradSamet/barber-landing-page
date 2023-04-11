@@ -1,4 +1,3 @@
-import * as React from 'react'
 import styles from '@/Styles/Services/services.module.scss'
 import Image, { StaticImageData } from 'next/image'
 import { Button } from '../Button/Button'

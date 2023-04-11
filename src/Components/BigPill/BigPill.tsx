@@ -1,4 +1,3 @@
-import * as React from "react"
 import styles from "@/Styles/BigPill/bigPill.module.scss"
 
 export interface IBigPillProps {

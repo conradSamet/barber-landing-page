@@ -1,4 +1,3 @@
-import * as React from 'react'
 import styles from '@/Styles/WorkingTime/workingTime.module.scss'
 import { Button } from '../Button/Button'
 import { BigPill } from '../BigPill/BigPill'

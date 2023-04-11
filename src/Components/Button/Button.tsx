@@ -1,4 +1,3 @@
-import * as React from "react"
 import styles from "@/Styles/Button/button.module.scss"
 
 export interface IButtonProps {
