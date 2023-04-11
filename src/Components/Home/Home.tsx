@@ -34,6 +34,7 @@ export function Home(props: IHomeProps) {
         fill
         sizes='100vw'
         priority
+        placeholder='blur'
       />
     </section>
   )
