@@ -31,8 +31,7 @@ export function Home(props: IHomeProps) {
         src={homeImg}
         className={styles.image}
         alt='background image'
-        fill
-        priority
+        width={3840}
       />
     </section>
   )
