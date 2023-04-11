@@ -23,7 +23,7 @@ export function ServiceCard({
           src={imgSrc}
           alt={alt}
           fill
-          sizes='(max-width: 768px) 90vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, (max-width: 1536px) 25vw, 12vw'
+          sizes='(max-width: 1024px) 35vw, 15vw'
         />
       </div>
       <h2> {descTitle} </h2>

@@ -15,7 +15,7 @@ export function About(props: IAboutProps) {
               src={img}
               alt='Barber Shop with 2 People getting an Haircut'
               fill
-              sizes='(max-width: 1024px) 100vw, 25vw'
+              sizes='(max-width: 1024px) 35vw, 25vw'
             />
           </div>
         </div>
