@@ -21,6 +21,7 @@ type date = {
   day: number
 }
 
+
 export default function Main({ day }: date) {
   return (
     <>

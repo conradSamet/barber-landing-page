@@ -28,17 +28,12 @@
     --text-color: var(--black);
     --text-color-reverse: var(--white);
   }
-
-  --font-Roboto: 'RobotoSlabRegular';
-  --font-Roboto-light: 'RobotoSlabLight';
-  --font-Roboto-medium: 'RobotoSlabMedium';
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'RobotoSlabRegular';
   scroll-behavior: smooth;
 }
 
@@ -64,25 +59,4 @@ li {
 h1 {
   font-size: 2.7rem;
   color: var(--primary-color);
-}
-
-@font-face {
-  font-family: "RobotoSlabRegular";
-  src: local("RobotoSlabRegular"),
-    url('../../public/assets/Fonts/RobotoSlab/static/RobotoSlab-Regular.ttf') format("truetype");
-  font-weight: 400
-}
-
-@font-face {
-  font-family: "RobotoSlabLight";
-  src: local("RobotoSlabLight"),
-    url("../../public/assets/Fonts/RobotoSlab/static/RobotoSlab-Light.ttf") format("truetype");
-  font-weight: 300
-}
-
-@font-face {
-  font-family: "RobotoSlabMedium";
-  src: local("RobotoSlabMedium"),
-    url("../../public/assets/Fonts/RobotoSlab/static/RobotoSlab-Medium.ttf") format("truetype");
-  font-weight: 500
 }

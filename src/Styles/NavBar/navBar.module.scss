@@ -9,6 +9,10 @@
   z-index: 100;
   background-color: var(--bg-blue-75);
 
+  h1 {
+    font-weight: 600;
+  }
+
   .container {
     height: 100%;
     display: flex;
@@ -18,12 +22,6 @@
 
     @include lg {
       margin-inline: auto;
-    }
-
-    .heading_container {
-      & > h1 {
-        font-family: var(--font-Roboto-light);
-      }
     }
 
     .navLinks_container {

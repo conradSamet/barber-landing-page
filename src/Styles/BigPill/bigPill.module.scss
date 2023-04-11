@@ -12,7 +12,11 @@
   padding: 1rem;
 
   background-color: var(--bg-gray);
-  color: var(--text-color-reverse)
+  color: var(--text-color-reverse);
+
+  span {
+    font-weight: 500
+  }
 }
 
 .today {
