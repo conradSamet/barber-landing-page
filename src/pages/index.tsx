@@ -6,7 +6,7 @@ import { Services } from '@/Components/Services/Services'
 import { About } from '@/Components/About/About'
 import { WorkingTime } from '@/Components/WorkingTIme/WorkingTime'
 import { Footer } from '@/Components/Footer/footer'
-
+/*
 export async function getStaticProps() {
   console.log(`revalidated current day - ${new Date().getDay()}`)
   return {
@@ -15,13 +15,14 @@ export async function getStaticProps() {
     },
     revalidate: 60,
   }
-}
+}*/
 
 type date = {
   day: number
 }
 
 export default function Main({ day }: date) {
+  day = 2;
   return (
     <>
       <Head>
