@@ -11,7 +11,18 @@ on:
         required: false
 
 jobs:
+  setup:
+    runs-on: self-hosted
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
   linting:
+    needs: setup
     runs-on: self-hosted
     steps:
       - name: npm ci
@@ -22,38 +33,31 @@ jobs:
         run: npm run lint
 
   build:
-    needs: linting
+    needs: [setup, linting]
     runs-on: self-hosted
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-    
-    - uses: actions/setup-node@v3
-      with:
-        node-version: "18"
-    
-    - name: caching
-      uses: actions/cache@v3
-      with:
-        path: |
-          ~/.npm
-          ${{ github.workspace }}/.next/cache
-        # Generate a new cache whenever packages or source files change.
-        key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-        # If source files changed but packages didn't, rebuild from a prior cache.
-        restore-keys: |
-          ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
-          
-    - name: build
-      run: npm run build
+      - name: caching
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.npm
+            ${{ github.workspace }}/.next/cache
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
+
+      - name: build
+        run: npm run build
       
   deploy:
     needs: build
     runs-on: self-hosted
     steps:
-        - name: move files to domain
-          run: rsync -azP --exclude '.env.local' --delete /home/sconrad/barber-runner/_work/barber-landing-page/barber-landing-page/ /var/www/barber.sametconrad.dev/html
+      - name: move files to domain
+        run: rsync -azP --exclude '.env.local' --delete /home/sconrad/barber-runner/_work/barber-landing-page/barber-landing-page/ /var/www/barber.sametconrad.dev/html
 
-        - name: restart pm2 service
-          run: pm2 reload barber-next
+      - name: restart pm2 service
+        run: pm2 reload barber-next
   
