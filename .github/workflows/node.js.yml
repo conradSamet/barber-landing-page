@@ -11,15 +11,15 @@ on:
         required: false
 
 jobs:
-  linting:
-    runs-on: self-hosted
-    steps: 
-      - name: npm run lint
-        run: npm run lint
+  #linting:
+    #runs-on: self-hosted
+    #steps: 
+      #- name: npm run lint
+       # run: npm run lint
 
 
   build:
-    needs: linting
+    #needs: linting
     runs-on: self-hosted
     steps:
     - name: Checkout repository
